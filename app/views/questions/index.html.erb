@@ -1,0 +1,9 @@
+<h1>Listing Questions</h1>
+<%= link_to 'New Question', new_question_path %>
+
+<% @questions.each do |question| %>
+  <div>
+    <h3><%= link_to question.title, question %></h3>
+  </div>
+<% end %>
+

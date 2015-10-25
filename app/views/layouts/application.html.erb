@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Qanda</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header>
+    <%= link_to "All Questions", questions_path %>
+
+    <%= form_tag questions_path, method: :get do %>
+      <%= text_field_tag :q, nil, placeholder: "Search" %>
+    <% end %>
+
+    <% if @questions.suggestions.any? %>
+      <p>Did you mean: <%= @questions.suggestions.first %></p>
+    <% end %>
+  </header>
+
+  <%= yield %>
+
+</body>
+</html>
